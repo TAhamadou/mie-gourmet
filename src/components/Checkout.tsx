@@ -165,8 +165,8 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
               <div className="space-y-4">
                 <p className="text-green-600 font-semibold text-lg">Your order has been submitted successfully!</p>
                 <div className="text-gray-600 space-y-2">
-                  <p>A copy of the inquiry should be sent to your email.</p>
-                  <p>Please await 1-3 business days for the confirmation of the order.</p>
+                  <p>Your order is now being processed!</p>
+                  <p>Please await 24 hours for the confirmation of the order.</p>
                   <p className="mt-4">For all questions and concerns, please reach out to us at:</p>
                   <p className="font-medium text-gray-800">miegourmetcafe@gmail.com</p>
                 </div>
