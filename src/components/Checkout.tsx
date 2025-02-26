@@ -167,6 +167,20 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
                 <div className="text-gray-600 space-y-2">
                   <p>Your order is now being processed!</p>
                   <p>Please await 24 hours for the confirmation of the order.</p>
+                  {deliveryMethod === 'Pickup' && (
+                    <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                      <p className="font-medium text-gray-900">Pickup Location:</p>
+                      <a 
+                        href="https://maps.google.com/?q=722+Shawmut+Ave+Boston+MA+02119"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-500 hover:text-orange-600 hover:underline"
+                      >
+                        Soul on Shawmut<br />
+                        722 Shawmut Ave, Boston, MA 02119
+                      </a>
+                    </div>
+                  )}
                   <p className="mt-4">For all questions and concerns, please reach out to us at:</p>
                   <p className="font-medium text-gray-800">miegourmetcafe@gmail.com</p>
                 </div>
@@ -332,12 +346,23 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
                       required
                     >
                       <option value="">Select a pickup location</option>
-                      <option value="Islamic Society of Boston Cultural Center (ISBCC)">
-                        Islamic Society of Boston Cultural Center (ISBCC)
-                      </option>
-                      <option value="Mosque for Praising Allah">Mosque for Praising Allah</option>
-                      <option value="Masjid Al-Quran">Masjid Al-Quran</option>
+                      <option value="Soul on Shawmut">Soul on Shawmut</option>
                     </select>
+                    {pickupLocation === 'Soul on Shawmut' && (
+                      <div className="mt-2">
+                        <p className="text-sm font-medium text-gray-900 mb-1">Your order will be available for pickup at:</p>
+                        <p className="text-sm text-gray-600">
+                          <a 
+                            href="https://maps.google.com/?q=722+Shawmut+Ave+Boston+MA+02119"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-orange-500 hover:text-orange-600 hover:underline"
+                          >
+                            722 Shawmut Ave, Boston, MA 02119
+                          </a>
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
