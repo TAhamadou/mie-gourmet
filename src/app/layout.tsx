@@ -23,6 +23,20 @@ export const metadata: Metadata = {
         type: 'image/svg+xml',
       }
     ]
+  },
+  openGraph: {
+    title: 'Mie Gourmet Cafe',
+    description: 'Handcrafted cakes and desserts made with love. Specializing in custom cakes, cheesecakes, and layer cakes for all occasions.',
+    images: [
+      {
+        url: '/images/logo/Mie-Seal.svg',
+        width: 512,
+        height: 512,
+        alt: 'Mie Gourmet Cafe Logo',
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
   }
 };
 
