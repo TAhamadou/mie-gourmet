@@ -2,9 +2,7 @@
 // import { useState } from 'react';
 import Image from "next/image";
 import {
-  MagnifyingGlassIcon,
   Bars3Icon,
-  UserIcon,
   ShoppingBagIcon,
 } from '@heroicons/react/24/outline';
 import titleImage from '../../public/images/logo/Mie-Title.svg';
@@ -43,12 +41,6 @@ export default function Header({ setIsMenuOpen, setIsCartOpen }: HeaderProps) {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="p-2 rounded-md hover:bg-gray-800">
-            <MagnifyingGlassIcon className="h-5 w-5 text-white" />
-          </button>
-          <button className="p-2 rounded-md hover:bg-gray-800">
-            <UserIcon className="h-5 w-5 text-white" />
-          </button>
           <button 
             className="p-2 rounded-md hover:bg-gray-800 relative"
             onClick={() => setIsCartOpen(true)}
