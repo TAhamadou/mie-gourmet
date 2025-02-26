@@ -95,7 +95,7 @@ export default function ProductPage({ product }: ProductPageProps) {
               <div>
                 <h2 className="text-xl font-semibold mb-2">Allergen Information</h2>
                 <p className="text-gray-600 leading-relaxed bg-orange-50 p-4 rounded-lg border border-orange-200">
-                  ⚠️ {product.allergens}
+                  {product.allergens}
                 </p>
               </div>
             </div>

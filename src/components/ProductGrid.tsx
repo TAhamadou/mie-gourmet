@@ -128,42 +128,49 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {filteredItems.map((product) => (
-            <Link 
-              href={`/product/${product.id}`} 
-              key={product.id}
-              className="group transition-transform duration-300 hover:scale-105"
-            >
-              <div className="relative aspect-square mb-2 sm:mb-4 overflow-hidden rounded-lg shadow-md">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  priority
-                />
-              </div>
-              <div className="text-center">
-                <h3 
-                  className="text-sm sm:text-lg font-bold mb-2 sm:mb-4 truncate px-1" 
-                  title={product.name}
-                >
-                  {product.name}
-                </h3>
-                <div className="flex items-center justify-between px-2 sm:px-4">
-                  <div className="space-y-0.5">
-                    <p className="text-sm sm:text-lg text-orange-500">
-                      ${product.price.toFixed(2)}
-                    </p>
-                    <p className="text-xs sm:text-sm text-gray-100 font-medium">
-                      Serves {product.servings} people
-                    </p>
-                  </div>
-                  <button className="bg-orange-500 text-white py-1 sm:py-2 px-2 sm:px-6 rounded-lg hover:bg-orange-600 transition-colors text-xs sm:text-sm font-medium">
-                    Order Now
-                  </button>
+            <div key={product.id} className="group transition-transform duration-300 hover:scale-105">
+              <Link 
+                href={`/product/${product.id}`}
+                className="block"
+              >
+                <div className="relative aspect-square mb-2 sm:mb-4 overflow-hidden rounded-lg shadow-md">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    priority
+                  />
                 </div>
-              </div>
-            </Link>
+                <div className="text-center">
+                  <h3 
+                    className="text-sm sm:text-lg font-bold mb-2 sm:mb-4 truncate px-1" 
+                    title={product.name}
+                  >
+                    {product.name}
+                  </h3>
+                  <div className="flex items-center justify-between px-2 sm:px-4">
+                    <div className="space-y-0.5">
+                      <p className="text-sm sm:text-lg text-orange-500">
+                        ${product.price.toFixed(2)}
+                      </p>
+                      <p className="text-xs sm:text-sm text-gray-100 font-medium">
+                        Serves {product.servings} people
+                      </p>
+                    </div>
+                    <button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        // Add your order handling logic here
+                      }}
+                      className="bg-orange-500 text-white py-1 sm:py-2 px-2 sm:px-6 rounded-lg hover:bg-orange-600 transition-colors text-xs sm:text-sm font-medium"
+                    >
+                      Order Now
+                    </button>
+                  </div>
+                </div>
+              </Link>
+            </div>
           ))}
         </div>
       </div>

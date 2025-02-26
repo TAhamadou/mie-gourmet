@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/logo/Mie-Logo.svg',
+        url: '/images/logo/Mie-Seal.svg',
         type: 'image/svg+xml',
       }
     ]
