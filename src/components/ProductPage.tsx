@@ -16,8 +16,10 @@ export default function ProductPage({ product }: ProductPageProps) {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const { addToCart } = useCart();
+  const images = Array.isArray(product.image) ? product.image : [product.image];
 
   const handleQuantityChange = (change: number) => {
     const newQuantity = quantity + change;
@@ -38,15 +40,39 @@ export default function ProductPage({ product }: ProductPageProps) {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Product Image */}
-          <div className="relative aspect-square">
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
+          {/* Product Image Gallery */}
+          <div className="space-y-4">
+            <div className="relative aspect-square">
+              <Image
+                src={images[selectedImageIndex]}
+                alt={product.name}
+                fill
+                className="object-cover rounded-lg"
+                priority
+              />
+            </div>
+            
+            {/* Thumbnail Gallery */}
+            {images.length > 1 && (
+              <div className="grid grid-cols-4 gap-2">
+                {images.map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImageIndex(index)}
+                    className={`relative aspect-square ${
+                      selectedImageIndex === index ? 'ring-2 ring-orange-500' : ''
+                    }`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${product.name} view ${index + 1}`}
+                      fill
+                      className="object-cover rounded-md"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Product Details */}

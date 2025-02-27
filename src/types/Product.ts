@@ -7,8 +7,8 @@ export interface Product {
   name: string;
   price: number;
   servings: string;
-  image: StaticImageData | string;  // Allow string for SVG paths
+  image: string | string[]; // Updated to allow array of images
   description: string;
   allergens: string;
-  productType: ProductType;
+  productType: string;
 } 
