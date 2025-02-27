@@ -135,11 +135,12 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
               >
                 <div className="relative aspect-square mb-2 sm:mb-4 overflow-hidden rounded-lg shadow-md">
                   <Image
-                    src={product.image[0]}
+                    src={product.image}
                     alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    priority
+                    width={300}
+                    height={300}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={false}
                   />
                 </div>
                 <div className="text-center">
