@@ -40,7 +40,7 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                   <div key={item.product.id} className="flex gap-4 border-b pb-6">
                     <div className="relative w-24 h-24">
                       <Image
-                        src={item.product.image}
+                        src={item.product.image[0]}
                         alt={item.product.name}
                         fill
                         className="object-cover rounded-lg"

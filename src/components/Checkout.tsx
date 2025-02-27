@@ -211,7 +211,7 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
                 <div key={item.product.id} className="flex gap-4">
                   <div className="relative w-20 h-20">
                     <Image
-                      src={item.product.image}
+                      src={item.product.image[0]}
                       alt={item.product.name}
                       fill
                       className="object-cover rounded"
