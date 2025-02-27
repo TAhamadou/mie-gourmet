@@ -1,5 +1,3 @@
-import { StaticImageData } from 'next/image';
-
 export type ProductType = 'Cheesecake' | 'Layer Cake';
 
 export interface Product {
@@ -7,7 +5,7 @@ export interface Product {
   name: string;
   price: number;
   servings: string;
-  image: string | string[]; // Updated to allow array of images
+  image: string[]; // Updated to allow array of images
   description: string;
   allergens: string;
   productType: string;
