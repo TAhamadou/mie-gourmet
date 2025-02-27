@@ -135,7 +135,7 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
               >
                 <div className="relative aspect-square mb-2 sm:mb-4 overflow-hidden rounded-lg shadow-md">
                   <Image
-                    src={product.image}
+                    src={product.image[0]}
                     alt={product.name}
                     width={300}
                     height={300}
