@@ -35,7 +35,7 @@ export const products: Product[] = [
     id: 'sweet_potato',
     name: "So'Sweet Potato Cheesecake",
     price: 65.00,
-    servings: "8-10",
+    servings: "16-20",
     image: [sweetPotatoImage.src],
     description: "This creamy desert is a perfect blend of rich cheesecake and sweet potato pie. Made with velvety sweet potato puree, warm spices, lemon zest, shredded coconut and a buttery graham cracker crust, it delivers a smooth, indulgent texture with just the right touch of sweetness. Topped with a light whipped cream and a sprinkle of graham cracker crumbs, this dessert is a comforting twist on a classic favorite.",
     allergens: "Contains coconut, dairy, eggs, and wheat. Manufactured in a bakery that processes wheat and other nuts.",
