@@ -5,7 +5,7 @@ export interface Product {
   name: string;
   price: number;
   servings: string;
-  image: string[]; // Updated to allow array of images
+  image: string[];
   description: string;
   allergens: string;
   productType: string;
