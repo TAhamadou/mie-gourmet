@@ -154,7 +154,7 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
                       <p className="text-sm sm:text-lg text-orange-500">
                         ${product.price.toFixed(2)}
                       </p>
-                      <p className="text-xs sm:text-sm text-gray-100 font-medium">
+                      <p className="text-xs sm:text-sm text-white font-medium">
                         Serves {product.servings} people
                       </p>
                     </div>
