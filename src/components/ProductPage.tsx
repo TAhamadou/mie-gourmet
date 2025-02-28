@@ -77,25 +77,25 @@ export default function ProductPage({ product }: ProductPageProps) {
 
           {/* Product Details */}
           <div className="flex flex-col justify-center">
-            <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
-            <p className="text-2xl font-semibold mb-4">${product.price.toFixed(2)}</p>
-            <p className="text-gray-600 mb-6">Serves {product.servings} people</p>
+            <h1 className="text-4xl font-bold mb-4 text-white">{product.name}</h1>
+            <p className="text-2xl font-semibold mb-4 text-white">${product.price.toFixed(2)}</p>
+            <p className="text-white mb-6">Serves {product.servings} people</p>
 
             {/* Quantity Selector */}
             <div className="flex items-center mb-6">
-              <span className="mr-4">Quantity:</span>
+              <span className="mr-4 text-white">Quantity:</span>
               <button
                 onClick={() => handleQuantityChange(-1)}
-                className="px-3 py-1 border rounded-l"
+                className="px-3 py-1 border rounded-l text-white"
               >
                 -
               </button>
-              <span className="px-4 py-1 border-t border-b">
+              <span className="px-4 py-1 border-t border-b text-white">
                 {quantity}
               </span>
               <button
                 onClick={() => handleQuantityChange(1)}
-                className="px-3 py-1 border rounded-r"
+                className="px-3 py-1 border rounded-r text-white"
               >
                 +
               </button>
@@ -112,15 +112,15 @@ export default function ProductPage({ product }: ProductPageProps) {
             {/* Product Description */}
             <div className="mt-8 space-y-6">
               <div>
-                <h2 className="text-xl font-semibold mb-2">Description</h2>
-                <p className="text-gray-600 leading-relaxed">
+                <h2 className="text-xl font-semibold mb-2 text-white">Description</h2>
+                <p className="text-white leading-relaxed">
                   {product.description}
                 </p>
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold mb-2">Allergen Information</h2>
-                <p className="text-gray-600 leading-relaxed bg-orange-50 p-4 rounded-lg border border-orange-200">
+                <h2 className="text-xl font-semibold mb-2 text-white">Allergen Information</h2>
+                <p className="text-black leading-relaxed bg-orange-50 p-4 rounded-lg border border-orange-200">
                   {product.allergens}
                 </p>
               </div>

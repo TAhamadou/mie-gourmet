@@ -14,7 +14,9 @@ import logo from '../../public/images/logo/Mie-Logo.svg';
 import gallery1 from '../../public/images/gallery/german_gallery.jpg';
 import gallery3 from '../../public/images/gallery/sweet_potato_gallery.jpg';
 import gallery4 from '../../public/images/gallery/strawberry_gallery.jpg';
-import pineappleDelightGallery from '../../public/images/gallery/pineapple_delight_gallery.jpg';
+import gallery5 from '../../public/images/gallery/pineapple_delight_gallery.jpg';
+import gallery6 from '../../public/images/pineapple_dream/pineapple_dream_slice (1).jpg';
+import gallery7 from '../../public/images/strawberry/strawberry_slice (2).jpg';
 
 // Import the useSort hook
 import { useSort } from '../hooks/useSort';
@@ -40,8 +42,18 @@ export default function Home() {
     { src: gallery3, alt: "Sweet Potato Cheesecake Gallery" },
     { src: gallery4, alt: "Strawberry Angel Cake Gallery" },
     {
-      src: pineappleDelightGallery,
+      src: gallery5,
       alt: "Pineapple Delight Cake topped with coconut and pineapple pieces",
+      className: "object-cover w-full h-full"
+    },
+    {
+      src: gallery6,
+      alt: "Pineapple Delight Cake Slice",
+      className: "object-cover w-full h-full"
+    },
+    {
+      src: gallery7,
+      alt: "Strawberry Shortcake Slice",
       className: "object-cover w-full h-full"
     },
   ];

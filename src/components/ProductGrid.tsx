@@ -137,10 +137,9 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
                   <Image
                     src={product.image[0]}
                     alt={product.name}
-                    width={300}
-                    height={300}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     priority={false}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <div className="text-center">
