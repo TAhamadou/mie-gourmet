@@ -7,8 +7,7 @@ import ProductGrid from '../components/ProductGrid';
 import Footer from '../components/Footer';
 import Cart from '../components/Cart';
 import { products } from '@/data/products';
-import Image from "next/image";
-import logo from '../../public/images/logo/Mie-Logo.svg';
+
 
 // Import gallery images
 import gallery1 from '../../public/images/gallery/german_gallery.jpg';
