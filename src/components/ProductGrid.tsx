@@ -33,37 +33,37 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
         <div className="relative w-72">
           <Listbox value={selectedType} onChange={setSelectedType}>
             <div className="relative mt-1">
-              <Listbox.Button className="relative w-full cursor-default rounded-lg bg-black py-2 pl-3 pr-10 text-left text-white shadow-md focus:outline-none">
+              <Listbox.Button className="relative w-full cursor-default rounded-lg bg-orange-50 border border-orange-200 py-2 pl-3 pr-10 text-left text-gray-900 shadow-md hover:border-orange-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-opacity-50 transition-all duration-200">
                 <span className="block truncate">
                   {typeOptions.find(option => option.id === selectedType)?.name}
                 </span>
                 <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                   <ChevronUpDownIcon
-                    className="h-5 w-5 text-white"
+                    className="h-5 w-5 text-gray-700"
                     aria-hidden="true"
                   />
                 </span>
               </Listbox.Button>
-              <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-black py-1 text-base shadow-lg focus:outline-none z-[60]">
+              <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-orange-50 border border-orange-200 py-1 text-base shadow-xl focus:outline-none z-[60]">
                 {typeOptions.map((option) => (
                   <Listbox.Option
                     key={option.id}
                     value={option.id}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? 'bg-gray-900 text-white' : 'text-gray-300'
+                        active ? 'bg-orange-100 text-gray-900 border-l-2 border-orange-500' : 'text-gray-700'
                       }`
                     }
                   >
                     {({ selected }) => (
                       <>
                         <span className={`block truncate ${
-                          selected ? 'font-medium' : 'font-normal'
+                          selected ? 'font-medium text-gray-900' : 'font-normal'
                         }`}>
                           {option.name}
                         </span>
                         {selected && (
-                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-white">
+                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-orange-500">
                             <CheckIcon className="h-5 w-5" aria-hidden="true" />
                           </span>
                         )}
@@ -80,37 +80,37 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
         <div className="relative w-72">
           <Listbox value={sortOption} onChange={setSortOption}>
             <div className="relative mt-1">
-              <Listbox.Button className="relative w-full cursor-default rounded-lg bg-black py-2 pl-3 pr-10 text-left text-white shadow-md focus:outline-none">
+              <Listbox.Button className="relative w-full cursor-default rounded-lg bg-orange-50 border border-orange-200 py-2 pl-3 pr-10 text-left text-gray-900 shadow-md hover:border-orange-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-opacity-50 transition-all duration-200">
                 <span className="block truncate">
                   {sortOptions.find(option => option.id === sortOption)?.name}
                 </span>
                 <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                   <ChevronUpDownIcon
-                    className="h-5 w-5 text-white"
+                    className="h-5 w-5 text-gray-700"
                     aria-hidden="true"
                   />
                 </span>
               </Listbox.Button>
-              <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-black py-1 text-base shadow-lg focus:outline-none z-[60]">
+              <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-orange-50 border border-orange-200 py-1 text-base shadow-xl focus:outline-none z-[60]">
                 {sortOptions.map((option) => (
                   <Listbox.Option
                     key={option.id}
                     value={option.id}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? 'bg-gray-900 text-white' : 'text-gray-300'
+                        active ? 'bg-orange-100 text-gray-900 border-l-2 border-orange-500' : 'text-gray-700'
                       }`
                     }
                   >
                     {({ selected }) => (
                       <>
                         <span className={`block truncate ${
-                          selected ? 'font-medium' : 'font-normal'
+                          selected ? 'font-medium text-gray-900' : 'font-normal'
                         }`}>
                           {option.name}
                         </span>
                         {selected && (
-                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-white">
+                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-orange-500">
                             <CheckIcon className="h-5 w-5" aria-hidden="true" />
                           </span>
                         )}
@@ -154,7 +154,7 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
                       <p className="text-sm sm:text-lg text-orange-500">
                         ${product.price.toFixed(2)}
                       </p>
-                      <p className="text-xs sm:text-sm text-white font-medium">
+                      <p className="text-xs sm:text-sm text-black font-medium">
                         Serves {product.servings} people
                       </p>
                     </div>

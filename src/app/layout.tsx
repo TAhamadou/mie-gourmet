@@ -29,15 +29,19 @@ export const metadata: Metadata = {
     description: 'Handcrafted cakes and desserts made with love. Specializing in custom cakes, cheesecakes, and layer cakes for all occasions.',
     images: [
       {
-        url: '/images/logo/Mie-Seal.svg',
-        width: 512,
-        height: 512,
-        alt: 'Mie Gourmet Cafe Logo',
-      }
+        url: '/images/logo/Mie-Logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Mie Gourmet - Premium Cakes & Desserts',
+      },
     ],
     locale: 'en_US',
     type: 'website',
-  }
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/logo/Mie-Logo.png'],
+  },
 };
 
 export default function RootLayout({
@@ -49,9 +53,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-orange-50 text-gray-900`}
       >
         <CartProvider>
           {children}

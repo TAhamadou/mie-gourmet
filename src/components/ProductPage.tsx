@@ -35,10 +35,10 @@ export default function ProductPage({ product }: ProductPageProps) {
 
   return (
     <div className="min-h-screen font-['Helvetica','Arial',sans-serif]">
-      <Header setIsMenuOpen={setIsMenuOpen} setIsCartOpen={setIsCartOpen} />
+      <Header setIsMenuOpen={setIsMenuOpen} setIsCartOpen={setIsCartOpen} disableOpacityChange={true} />
       <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-24">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Product Image Gallery */}
           <div className="space-y-4">
@@ -77,25 +77,25 @@ export default function ProductPage({ product }: ProductPageProps) {
 
           {/* Product Details */}
           <div className="flex flex-col justify-center">
-            <h1 className="text-4xl font-bold mb-4 text-white">{product.name}</h1>
-            <p className="text-2xl font-semibold mb-4 text-white">${product.price.toFixed(2)}</p>
-            <p className="text-white mb-6">Serves {product.servings} people</p>
+            <h1 className="text-4xl font-bold mb-4 text-black">{product.name}</h1>
+            <p className="text-2xl font-semibold mb-4 text-black">${product.price.toFixed(2)}</p>
+            <p className="text-black mb-6">Serves {product.servings} people</p>
 
             {/* Quantity Selector */}
             <div className="flex items-center mb-6">
-              <span className="mr-4 text-white">Quantity:</span>
+              <span className="mr-4 text-black">Quantity:</span>
               <button
                 onClick={() => handleQuantityChange(-1)}
-                className="px-3 py-1 border rounded-l text-white"
+                className="px-3 py-1 border rounded-l text-black"
               >
                 -
               </button>
-              <span className="px-4 py-1 border-t border-b text-white">
+              <span className="px-4 py-1 border-t border-b text-black">
                 {quantity}
               </span>
               <button
                 onClick={() => handleQuantityChange(1)}
-                className="px-3 py-1 border rounded-r text-white"
+                className="px-3 py-1 border rounded-r text-black"
               >
                 +
               </button>
@@ -112,14 +112,14 @@ export default function ProductPage({ product }: ProductPageProps) {
             {/* Product Description */}
             <div className="mt-8 space-y-6">
               <div>
-                <h2 className="text-xl font-semibold mb-2 text-white">Description</h2>
-                <p className="text-white leading-relaxed">
+                <h2 className="text-xl font-semibold mb-2 text-black">Description</h2>
+                <p className="text-black leading-relaxed">
                   {product.description}
                 </p>
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold mb-2 text-white">Allergen Information</h2>
+                <h2 className="text-xl font-semibold mb-2 text-black">Allergen Information</h2>
                 <p className="text-black leading-relaxed bg-orange-50 p-4 rounded-lg border border-orange-200">
                   {product.allergens}
                 </p>
@@ -134,7 +134,7 @@ export default function ProductPage({ product }: ProductPageProps) {
       {/* Overlay */}
       {(isCartOpen || isMenuOpen) && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-gray-900 bg-opacity-50 z-40"
           onClick={() => {
             setIsCartOpen(false);
             setIsMenuOpen(false);

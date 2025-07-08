@@ -2,11 +2,13 @@
 import { useState, useEffect } from 'react';
 import Image from "next/image";
 import { StaticImageData } from 'next/image';
-import logo from '../../public/images/logo/Mie-Logo.svg';
+import logo from '../../public/images/logo/Mie-Logo.png';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 interface GalleryImage {
   src: StaticImageData;
   alt: string;
+  className?: string;
 }
 
 interface HeroCarouselProps {
@@ -24,16 +26,24 @@ export default function HeroCarousel({ images }: HeroCarouselProps) {
     return () => clearInterval(timer);
   }, [images.length]);
 
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % images.length);
+  };
+
   return (
-    <div className="relative h-[600px]">
+    <div className="relative h-[700px]">
       {/* Logo in bottom right corner */}
-      <div className="absolute bottom-8 right-8 z-10 w-24 h-24">
+      <div className="absolute bottom-8 right-8 z-10 w-30 h-30">
         <Image
           src={logo}
           alt="Mie Gourmet Logo"
-          width={96}
-          height={96}
-          className="drop-shadow-lg brightness-0 invert"
+          width={150}
+          height={150}
+          className="drop-shadow-lg"
         />
       </div>
 
@@ -55,11 +65,11 @@ export default function HeroCarousel({ images }: HeroCarouselProps) {
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/80"></div>
       <div className="absolute inset-0 flex flex-col justify-center px-8 max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-widest uppercase text-white">
-          Original Cakes
+        <h1 className="text-4xl md:text-5xl mb-4 tracking-widest uppercase text-white font-['Quicksand'] font-medium" style={{ letterSpacing: '0.1em', fontWeight: 550 }}>
+          Orginal Cakes
         </h1>
-        <p className="text-lg text-white max-w-2xl">
-          Our locally made original cakes are handmade with premium ingredients.
+        <p className="text-lg text-white max-w-2xl font-['Quicksand'] font-medium" style={{ letterSpacing: '0.1em', fontWeight: 500 }}>
+          &ldquo;Sweets that taste like home~&rdquo;
         </p>
       </div>
 
@@ -76,22 +86,19 @@ export default function HeroCarousel({ images }: HeroCarouselProps) {
         ))}
       </div>
 
-      <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/75 transition-colors"
-        onClick={() => setCurrentSlide((prev) => 
-          prev === 0 ? images.length - 1 : prev - 1
-        )}
-      >
-        ←
-      </button>
-      <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/75 transition-colors"
-        onClick={() => setCurrentSlide((prev) => 
-          (prev + 1) % images.length
-        )}
-      >
-        →
-      </button>
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-orange-100/90 text-gray-800 hover:bg-orange-200/90 transition-colors"
+        >
+          <ChevronLeftIcon className="h-6 w-6" />
+        </button>
+        
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-orange-100/90 text-gray-800 hover:bg-orange-200/90 transition-colors"
+        >
+          <ChevronRightIcon className="h-6 w-6" />
+        </button>
     </div>
   );
 } 
