@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/logo/Mie-Seal.svg',
-        type: 'image/svg+xml',
+        url: '/images/logo/Mie-Logo.png',
+        type: 'image/png',
       }
     ]
   },
