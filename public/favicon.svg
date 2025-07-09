@@ -3,10 +3,10 @@
   <defs>
     <style>
       .favicon-bg {
-        fill: #ffffff;
+        fill: #FFFFFF;
       }
     </style>
   </defs>
   <rect class="favicon-bg" width="100" height="100" rx="15"/>
-  <image x="10" y="10" width="80" height="80" xlink:href="/images/logo/Mie-Logo.png"/>
+  <image x="10" y="10" width="32" height="32" xlink:href="/images/logo/Mie-Icon.png"/>
 </svg> 
