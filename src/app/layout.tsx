@@ -19,10 +19,21 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
+        url: '/favicon.svg',
+        type: 'image/svg+xml',
+      },
+      {
         url: '/images/logo/Mie-Logo.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/images/logo/Mie-Logo.png',
+        sizes: '16x16',
         type: 'image/png',
       }
-    ]
+    ],
+    shortcut: '/favicon.svg',
   },
   openGraph: {
     title: 'Mie Gourmet Cafe',
@@ -54,6 +65,10 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo/Mie-Logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo/Mie-Logo.png" />
+        <link rel="shortcut icon" href="/favicon.svg" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-orange-50 text-gray-900`}

@@ -46,7 +46,7 @@ export default function Header({ setIsMenuOpen, setIsCartOpen, disableOpacityCha
               className="text-4xl text-brown-800 font-normal"
               style={{ 
                 fontFamily: "'Shadows Into Light', cursive", 
-                fontSize: '60px',
+                fontSize: 'clamp(40px, 5vw, 50px)',
                 letterSpacing: '0.1em',
                 color: 'rgb(85, 38, 5)'
               }}

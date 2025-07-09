@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .favicon-bg {
+        fill: #ffffff;
+      }
+    </style>
+  </defs>
+  <rect class="favicon-bg" width="100" height="100" rx="15"/>
+  <image x="10" y="10" width="80" height="80" xlink:href="/images/logo/Mie-Logo.png"/>
+</svg> 
