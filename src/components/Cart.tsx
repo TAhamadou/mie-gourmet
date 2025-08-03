@@ -4,6 +4,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { useState } from 'react';
 import Checkout from './Checkout';
+import { Product } from '@/types/Product';
 
 interface CartProps {
   isOpen: boolean;
@@ -20,7 +21,7 @@ export default function Cart({ isOpen, onClose }: CartProps) {
     setIsCheckoutOpen(true);
   };
 
-  const getPriceDisplay = (item: any) => {
+  const getPriceDisplay = (item: { product: Product; quantity: number }) => {
     if (item.product.style === 'Mini Cake') {
       const bulkPrice = getMiniCakePrice(item.product, item.quantity);
       const originalPrice = 10.00; // Base price for mini cakes
