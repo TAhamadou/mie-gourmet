@@ -62,7 +62,7 @@ const productImages = {
   pineapple_dream: getImagesForProduct('pineapple_dream'),
   sweet_potato_mini: getImagesForProduct('sweet_potato_mini'),
   pineapple_upside_down_mini: getImagesForProduct('pineapple_upside_down_mini'),
-  biscoff_cookie_butter_mini: getImagesForProduct('biscoff_cookie_butter_mini'),
+  biscoff_cheesecake_mini: getImagesForProduct('biscoff_cheesecake_mini'),
   german_sweet_chocolate_mini: getImagesForProduct('german_sweet_chocolate_mini'),
   cherry_bliss_cheesecake_mini: getImagesForProduct('cherry_bliss_cheesecake_mini'),
   strawberry_cheesecake_mini: getImagesForProduct('strawberry_cheesecake_mini'),
@@ -139,14 +139,14 @@ export const products: Product[] = [
     style: "Mini Cake"
   },
   {
-    id: 'biscoff_cookie_butter_mini',
-    name: "Biscoff Cookie Butter (Mini)",
+    id: 'biscoff_cheesecake_mini',
+    name: "Biscoff Cheesecake (Mini)",
     price: 10.00,
     servings: "1",
-    image: productImages.biscoff_cookie_butter_mini,
+    image: productImages.biscoff_cheesecake_mini,
     description: "",
     allergens: "",
-    productType: "Bun Cake",
+    productType: "Cheesecake",
     style: "Mini Cake"
   },
   {

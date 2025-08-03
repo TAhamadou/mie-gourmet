@@ -257,7 +257,7 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
             {/* Mini Cakes */}
             <input type="hidden" name="entry.1018347602" value={getProductQuantity('sweet_potato_mini')} />
             <input type="hidden" name="entry.1874709808" value={getProductQuantity('pineapple_upside_down_mini')} />
-            <input type="hidden" name="entry.692173501" value={getProductQuantity('biscoff_cookie_butter_mini')} />
+            <input type="hidden" name="entry.692173501" value={getProductQuantity('biscoff_cheesecake_mini')} />
             <input type="hidden" name="entry.493192916" value={getProductQuantity('german_sweet_chocolate_mini')} />
             <input type="hidden" name="entry.1791724973" value={getProductQuantity('cherry_bliss_cheesecake_mini')} />
             <input type="hidden" name="entry.191738495" value={getProductQuantity('strawberry_cheesecake_mini')} />
