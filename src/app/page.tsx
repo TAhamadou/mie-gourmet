@@ -14,8 +14,8 @@ import gallery1 from '../../public/images/gallery/german_gallery.jpg';
 import gallery3 from '../../public/images/gallery/sweet_potato_gallery.jpg';
 import gallery4 from '../../public/images/gallery/strawberry_gallery.jpg';
 import gallery5 from '../../public/images/gallery/pineapple_delight_gallery.jpg';
-import gallery6 from '../../public/images/pineapple_dream/pineapple_dream_slice (1).jpg';
-import gallery7 from '../../public/images/strawberry/strawberry_slice (2).jpg';
+import gallery6 from '../../public/images/products/pineapple_dream/pineapple_dream_slice (1).jpg';
+import gallery7 from '../../public/images/products/strawberry/strawberry_slice (2).jpg';
 
 // Import the useSort hook
 import { useSort } from '../hooks/useSort';

@@ -69,7 +69,7 @@ export default function HeroCarousel({ images }: HeroCarouselProps) {
           Orginal Cakes
         </h1>
         <p className="text-lg text-white max-w-2xl font-['Quicksand'] font-medium" style={{ letterSpacing: '0.1em', fontWeight: 500 }}>
-          &ldquo;Sweets that taste like home~&rdquo;
+          &ldquo;Taste like home~&rdquo;
         </p>
       </div>
 

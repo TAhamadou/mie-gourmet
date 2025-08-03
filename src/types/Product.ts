@@ -1,4 +1,5 @@
-export type ProductType = 'Cheesecake' | 'Layer Cake';
+export type ProductType = 'Layer Cake' | 'Cheesecake' | 'Bun Cake';
+export type ProductStyle = 'Mini Cake' | 'Whole Cake';
 
 export interface Product {
   id: string;
@@ -8,5 +9,6 @@ export interface Product {
   image: string[];
   description: string;
   allergens: string;
-  productType: string;
+  productType: ProductType;
+  style: ProductStyle;
 } 

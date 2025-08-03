@@ -5,6 +5,7 @@ import { ChevronUpDownIcon, CheckIcon } from '@heroicons/react/20/solid';
 import { Product, ProductType } from '../types/Product';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useCart } from '@/context/CartContext';
 
 interface ProductGridProps {
   sortedItems: Product[];
@@ -15,16 +16,31 @@ interface ProductGridProps {
 
 export default function ProductGrid({ sortedItems, sortOption, setSortOption, sortOptions }: ProductGridProps) {
   const [selectedType, setSelectedType] = useState<'all' | ProductType>('all');
+  const { addToCart } = useCart();
+  const [addedToCart, setAddedToCart] = useState<string | null>(null);
   
   const typeOptions = [
     { id: 'all', name: 'All Products' },
     { id: 'Cheesecake', name: 'Cheesecakes' },
-    { id: 'Layer Cake', name: 'Layer Cakes' }
+    { id: 'Layer Cake', name: 'Layer Cakes' },
+    { id: 'Bun Cake', name: 'Bun Cakes' }
   ];
 
   const filteredItems = selectedType === 'all' 
     ? sortedItems 
     : sortedItems.filter(item => item.productType === selectedType);
+
+  const handleAddToCart = (product: Product, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product, 1);
+    setAddedToCart(product.id);
+    
+    // Clear the "added" state after 2 seconds
+    setTimeout(() => {
+      setAddedToCart(null);
+    }, 2000);
+  };
 
   return (
     <section>
@@ -155,17 +171,18 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
                         ${product.price.toFixed(2)}
                       </p>
                       <p className="text-xs sm:text-sm text-black font-medium">
-                        Serves {product.servings} people
+                        Servings: {product.servings}
                       </p>
                     </div>
                     <button 
-                      onClick={(e) => {
-                        e.preventDefault();
-                        // Add your order handling logic here
-                      }}
-                      className="bg-orange-500 text-white py-1 sm:py-2 px-2 sm:px-6 rounded-lg hover:bg-orange-600 transition-colors text-xs sm:text-sm font-medium"
+                      onClick={(e) => handleAddToCart(product, e)}
+                      className={`py-1 sm:py-2 px-2 sm:px-6 rounded-lg transition-colors text-xs sm:text-sm font-medium ${
+                        addedToCart === product.id
+                          ? 'bg-green-500 text-white'
+                          : 'bg-orange-500 text-white hover:bg-orange-600'
+                      }`}
                     >
-                      Order Now
+                      {addedToCart === product.id ? 'Added!' : 'Order Now'}
                     </button>
                   </div>
                 </div>

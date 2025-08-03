@@ -78,7 +78,36 @@ export default function ProductPage({ product }: ProductPageProps) {
           {/* Product Details */}
           <div className="flex flex-col justify-center">
             <h1 className="text-4xl font-bold mb-4 text-black">{product.name}</h1>
-            <p className="text-2xl font-semibold mb-4 text-black">${product.price.toFixed(2)}</p>
+            
+            {/* Price Display */}
+            {product.style === 'Mini Cake' ? (
+              <div className="mb-6">
+                <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+                  <h3 className="font-semibold text-orange-800 mb-3">Bulk Pricing Available:</h3>
+                  <div className="space-y-2 text-orange-700">
+                    <div className="flex justify-between">
+                      <span>1-3 cakes:</span>
+                      <span className="font-medium">$10.00 each</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>4-5 cakes:</span>
+                      <span className="font-medium">$9.00 each</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>6+ cakes:</span>
+                      <span className="font-medium">$8.50 each</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>12+ same type:</span>
+                      <span className="font-medium">Wholesale pricing</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <p className="text-2xl font-semibold mb-4 text-black">${product.price.toFixed(2)}</p>
+            )}
+            
             <p className="text-black mb-6">Serves {product.servings} people</p>
 
             {/* Quantity Selector */}
@@ -106,7 +135,10 @@ export default function ProductPage({ product }: ProductPageProps) {
               onClick={handleAddToCart}
               className="bg-orange-500 text-white py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors"
             >
-              Add to Cart - ${(product.price * quantity).toFixed(2)}
+              {product.style === 'Mini Cake' 
+                ? `Add to Cart - ${quantity} cake${quantity > 1 ? 's' : ''}`
+                : `Add to Cart - $${(product.price * quantity).toFixed(2)}`
+              }
             </button>
 
             {/* Product Description */}

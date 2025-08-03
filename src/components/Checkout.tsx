@@ -164,9 +164,22 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
               <h3 className="text-2xl font-bold text-gray-900">Thank You!</h3>
               <div className="space-y-4">
                 <p className="text-green-600 font-semibold text-lg">Your order has been submitted successfully!</p>
-                <div className="text-gray-600 space-y-2">
+                <div className="text-gray-600 space-y-3">
                   <p>Your order is now being processed!</p>
                   <p>Please await 24 hours for the confirmation of the order.</p>
+                  
+                  <div className="mt-4 p-4 bg-orange-50 rounded-lg border border-orange-200">
+                    <p className="font-semibold text-orange-800 mb-2">Important Order Information:</p>
+                    <div className="space-y-2 text-sm text-orange-700">
+                      <p>• Minimum 3 business days lead time required. </p>
+                      <p>• Call <a href="tel:6173291178" className="font-medium underline hover:text-orange-800">617-329-1178</a> for rush orders</p>
+                      <p>• Orders can be picked up or delivered (delivery fee may apply)</p>
+                      <p>• Payment accepted via Square or ACH</p>
+                      <p>• New clients must pay in full before production</p>
+                      <p>• Established wholesale distribution clients may qualify for Net 7 or Net 14 terms</p>
+                    </div>
+                  </div>
+
                   {deliveryMethod === 'Pickup' && (
                     <div className="mt-4 p-4 bg-gray-50 rounded-lg">
                       <p className="font-medium text-gray-900">Pickup Location:</p>
@@ -181,6 +194,7 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
                       </a>
                     </div>
                   )}
+                  
                   <p className="mt-4">For all questions and concerns, please reach out to us at:</p>
                   <p className="font-medium text-gray-800">miegourmetcafe@gmail.com</p>
                 </div>
@@ -234,11 +248,25 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
             className="space-y-8"
           >
             {/* Hidden fields for product quantities */}
+            {/* Whole Cakes */}
             <input type="hidden" name="entry.1736886415" value={getProductQuantity('german')} />
             <input type="hidden" name="entry.1576201446" value={getProductQuantity('strawberry')} />
-            <input type="hidden" name="entry.794611865" value={getProductQuantity('pineapple-upside')} />
-            <input type="hidden" name="entry.1623293201" value={getProductQuantity('sweet-potato')} />
-            <input type="hidden" name="entry.1748200991" value={getProductQuantity('pineapple-dream')} />
+            <input type="hidden" name="entry.1623293201" value={getProductQuantity('sweet_potato')} />
+            <input type="hidden" name="entry.1748200991" value={getProductQuantity('pineapple_dream')} />
+            
+            {/* Mini Cakes */}
+            <input type="hidden" name="entry.1018347602" value={getProductQuantity('sweet_potato_mini')} />
+            <input type="hidden" name="entry.1874709808" value={getProductQuantity('pineapple_upside_down_mini')} />
+            <input type="hidden" name="entry.692173501" value={getProductQuantity('biscoff_cookie_butter_mini')} />
+            <input type="hidden" name="entry.493192916" value={getProductQuantity('german_sweet_chocolate_mini')} />
+            <input type="hidden" name="entry.1791724973" value={getProductQuantity('cherry_bliss_cheesecake_mini')} />
+            <input type="hidden" name="entry.191738495" value={getProductQuantity('strawberry_cheesecake_mini')} />
+            <input type="hidden" name="entry.1315473462" value={getProductQuantity('strawberry_shortcake_mini')} />
+            <input type="hidden" name="entry.1784500433" value={getProductQuantity('cinnamon_honey_bun_mini')} />
+            <input type="hidden" name="entry.438205260" value={getProductQuantity('chocolate_ganache_mini')} />
+            
+            {/* Cart Total */}
+            <input type="hidden" name="entry.2023944753" value={getCartTotal().toFixed(2)} />
 
             {/* Hidden "Requested" field */}
             <input type="hidden" name="entry.227808856" value="Requested" />

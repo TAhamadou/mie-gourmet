@@ -28,7 +28,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-400 mt-8 pt-8 text-center text-gray-600">
-          <p>&copy; 2024 Mie Gourmet. All rights reserved.</p>
+          <p>&copy; 2025 Mie Gourmet. All rights reserved.</p>
         </div>
       </div>
     </footer>
