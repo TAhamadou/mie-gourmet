@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 import Cart from '../../components/Cart';
 import Image from 'next/image';
 import { products } from '@/data/products';
-import { assortmentProducts, getAssortmentProduct } from '@/data/promos';
+import { getAssortmentProduct } from '@/data/promos';
 import { useCart } from '@/context/CartContext';
 
 const assortmentOptions = [
@@ -61,7 +61,7 @@ export default function AssortmentPage() {
       if (assortmentProduct) {
         // Create a custom product with selected cakes info and quantities
         const selectedCakesList = Object.entries(selectedCakes)
-          .filter(([_, count]) => count > 0)
+          .filter(([, count]) => count > 0)
           .map(([cakeId, count]) => {
             const cake = availableCakes.find(c => c.id === cakeId);
             return `${count}x ${cake?.name.replace(' (Mini)', '') || cakeId}`;
