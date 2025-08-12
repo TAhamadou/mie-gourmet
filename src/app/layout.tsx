@@ -25,21 +25,21 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/logo/Mie-Seal.svg',
-        type: 'image/svg+xml',
+        url: '/icon.png',
+        type: 'image/png',
       },
       {
-        url: '/images/logo/Mie-Seal.svg',
+        url: '/icon.png',
         sizes: '32x32',
-        type: 'image/svg+xml',
+        type: 'image/png',
       },
       {
-        url: '/images/logo/Mie-Seal.svg',
+        url: '/icon.png',
         sizes: '16x16',
-        type: 'image/svg+xml',
+        type: 'image/png',
       }
     ],
-    shortcut: '/images/logo/Mie-Seal.svg',
+    shortcut: '/icon.png',
   },
   openGraph: {
     title: 'Mie Gourmet Cafe',
@@ -70,10 +70,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="icon" type="image/svg+xml" href="/images/logo/Mie-Seal.svg" />
-        <link rel="icon" type="image/svg+xml" sizes="32x32" href="/images/logo/Mie-Seal.svg" />
-        <link rel="icon" type="image/svg+xml" sizes="16x16" href="/images/logo/Mie-Seal.svg" />
-        <link rel="shortcut icon" href="/images/logo/Mie-Seal.svg" />
+        <link rel="icon" type="image/png" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon.png" />
+        <link rel="shortcut icon" href="/icon.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${shadowsIntoLight.variable} antialiased bg-orange-50 text-gray-900`}

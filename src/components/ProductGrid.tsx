@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Listbox } from '@headlessui/react';
 import { ChevronUpDownIcon, CheckIcon } from '@heroicons/react/20/solid';
-import { Product, ProductType } from '../types/Product';
+import { Product, ProductType, ProductStyle } from '../types/Product';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
@@ -16,6 +16,7 @@ interface ProductGridProps {
 
 export default function ProductGrid({ sortedItems, sortOption, setSortOption, sortOptions }: ProductGridProps) {
   const [selectedType, setSelectedType] = useState<'all' | ProductType>('all');
+  const [selectedStyle, setSelectedStyle] = useState<'all' | ProductStyle>('all');
   const { addToCart } = useCart();
   const [addedToCart, setAddedToCart] = useState<string | null>(null);
   
@@ -26,9 +27,17 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
     { id: 'Bun Cake', name: 'Bun Cakes' }
   ];
 
-  const filteredItems = selectedType === 'all' 
-    ? sortedItems 
-    : sortedItems.filter(item => item.productType === selectedType);
+  const styleOptions = [
+    { id: 'all', name: 'All Sizes' },
+    { id: 'Mini Cake', name: 'Mini Cakes' },
+    { id: 'Whole Cake', name: 'Whole Cakes' }
+  ];
+
+  const filteredItems = sortedItems.filter(item => {
+    const typeMatch = selectedType === 'all' || item.productType === selectedType;
+    const styleMatch = selectedStyle === 'all' || item.style === selectedStyle;
+    return typeMatch && styleMatch;
+  });
 
   const handleAddToCart = (product: Product, e: React.MouseEvent) => {
     e.preventDefault();
@@ -62,6 +71,53 @@ export default function ProductGrid({ sortedItems, sortOption, setSortOption, so
               </Listbox.Button>
               <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-orange-50 border border-orange-200 py-1 text-base shadow-xl focus:outline-none z-[60]">
                 {typeOptions.map((option) => (
+                  <Listbox.Option
+                    key={option.id}
+                    value={option.id}
+                    className={({ active }) =>
+                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                        active ? 'bg-orange-100 text-gray-900 border-l-2 border-orange-500' : 'text-gray-700'
+                      }`
+                    }
+                  >
+                    {({ selected }) => (
+                      <>
+                        <span className={`block truncate ${
+                          selected ? 'font-medium text-gray-900' : 'font-normal'
+                        }`}>
+                          {option.name}
+                        </span>
+                        {selected && (
+                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-orange-500">
+                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                          </span>
+                        )}
+                      </>
+                    )}
+                  </Listbox.Option>
+                ))}
+              </Listbox.Options>
+            </div>
+          </Listbox>
+        </div>
+
+        {/* Product Style Filter */}
+        <div className="relative w-72">
+          <Listbox value={selectedStyle} onChange={setSelectedStyle}>
+            <div className="relative mt-1">
+              <Listbox.Button className="relative w-full cursor-default rounded-lg bg-orange-50 border border-orange-200 py-2 pl-3 pr-10 text-left text-gray-900 shadow-md hover:border-orange-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-opacity-50 transition-all duration-200">
+                <span className="block truncate">
+                  {styleOptions.find(option => option.id === selectedStyle)?.name}
+                </span>
+                <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                  <ChevronUpDownIcon
+                    className="h-5 w-5 text-gray-700"
+                    aria-hidden="true"
+                  />
+                </span>
+              </Listbox.Button>
+              <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-orange-50 border border-orange-200 py-1 text-base shadow-xl focus:outline-none z-[60]">
+                {styleOptions.map((option) => (
                   <Listbox.Option
                     key={option.id}
                     value={option.id}
