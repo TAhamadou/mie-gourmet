@@ -3,8 +3,11 @@ import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import HeroCarousel from '../components/HeroCarousel';
+import Promo from '../components/Promo';
 import Footer from '../components/Footer';
 import Cart from '../components/Cart';
+import { products } from '@/data/products';
+import { promos } from '@/data/promos';
 
 // Import gallery images
 import gallery1 from '../../public/images/gallery/german_gallery.jpg';
@@ -18,6 +21,7 @@ export default function Home() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [showPromo] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
@@ -58,6 +62,15 @@ export default function Home() {
         <section className="relative mb-4">
           <HeroCarousel images={galleryImages} />
         </section>
+
+        {/* Promo Section */}
+        {showPromo && promos[0] && (
+          <Promo 
+            promo={promos[0]} 
+            products={products} 
+            isVisible={showPromo}
+          />
+        )}
 
         {/* Welcome section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

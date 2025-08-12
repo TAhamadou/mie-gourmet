@@ -16,34 +16,12 @@ interface CartContextType {
   getCartTotal: () => number;
   getItemCount: () => number;
   clearCart: () => void;
-  getMiniCakePrice: (product: Product, quantity: number) => number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
-
-  // Calculate price for mini cakes based on quantity
-  const getMiniCakePrice = (product: Product, quantity: number): number => {
-    // Only apply bulk pricing to mini cakes
-    if (product.style !== 'Mini Cake') {
-      return product.price;
-    }
-
-    // Bulk pricing tiers for mini cakes
-    if (quantity >= 12) {
-      // Wholesale pricing - need to determine wholesale price based on cake type
-      // For now, using $8.50 as wholesale price, but this could be customized per product
-      return 8.50;
-    } else if (quantity >= 6) {
-      return 8.50;
-    } else if (quantity >= 4) {
-      return 9.00;
-    } else {
-      return 10.00;
-    }
-  };
 
   const addToCart = (product: Product, quantity: number) => {
     setItems(currentItems => {
@@ -66,7 +44,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const updateQuantity = (productId: string, quantity: number) => {
-    if (quantity < 1) return;
+    if (quantity < 1) {
+      removeFromCart(productId);
+      return;
+    }
     setItems(currentItems =>
       currentItems.map(item =>
         item.product.id === productId ? { ...item, quantity } : item
@@ -74,19 +55,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  const getCartTotal = () => {
+  const getCartTotal = (): number => {
     return items.reduce((total, item) => {
-      let itemPrice;
-      
-      if (item.product.style === 'Mini Cake') {
-        // Apply bulk pricing for mini cakes
-        itemPrice = getMiniCakePrice(item.product, item.quantity);
-      } else {
-        // Regular pricing for whole cakes
-        itemPrice = item.product.price;
-      }
-      
-      return total + (itemPrice * item.quantity);
+      return total + (item.product.price * item.quantity);
     }, 0);
   };
 
@@ -107,7 +78,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
       getCartTotal,
       getItemCount,
       clearCart,
-      getMiniCakePrice,
     }}>
       {children}
     </CartContext.Provider>

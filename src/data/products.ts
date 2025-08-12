@@ -118,14 +118,15 @@ export const products: Product[] = [
   },
   {
     id: 'sweet_potato_mini',
-    name: "Sweet Potato (Mini)",
+    name: "Sweet Potato Cheesecake (Mini)",
     price: 10.00,
     servings: "1",
     image: productImages.sweet_potato_mini,
     description: "",
     allergens: "",
     productType: "Cheesecake",
-    style: "Mini Cake"
+    style: "Mini Cake",
+    promoId: "assortment"
   },
   {
     id: 'pineapple_upside_down_mini',
@@ -136,7 +137,8 @@ export const products: Product[] = [
     description: "",
     allergens: "",
     productType: "Cheesecake",
-    style: "Mini Cake"
+    style: "Mini Cake",
+    promoId: "assortment"
   },
   {
     id: 'biscoff_cheesecake_mini',
@@ -147,7 +149,8 @@ export const products: Product[] = [
     description: "",
     allergens: "",
     productType: "Cheesecake",
-    style: "Mini Cake"
+    style: "Mini Cake",
+    promoId: "assortment"
   },
   {
     id: 'german_sweet_chocolate_mini',
@@ -158,7 +161,8 @@ export const products: Product[] = [
     description: "",
     allergens: "",
     productType: "Layer Cake",
-    style: "Mini Cake"
+    style: "Mini Cake",
+    promoId: "assortment"
   },
   {
     id: 'cherry_bliss_cheesecake_mini',
@@ -169,7 +173,8 @@ export const products: Product[] = [
     description: "",
     allergens: "",
     productType: "Cheesecake",
-    style: "Mini Cake"
+    style: "Mini Cake",
+    promoId: "assortment"
   },
   {
     id: 'strawberry_cheesecake_mini',
@@ -191,7 +196,8 @@ export const products: Product[] = [
     description: "",
     allergens: "",
     productType: "Layer Cake",
-    style: "Mini Cake"
+    style: "Mini Cake",
+    promoId: "assortment"
   },
   {
     id: 'cinnamon_honey_bun_mini',

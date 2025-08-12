@@ -95,8 +95,22 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
 
   // Helper function to get quantity of a specific product
   const getProductQuantity = (productId: string) => {
-    const item = items.find(item => item.product.id === productId);
-    return item ? item.quantity : 0;
+    // Check regular products first
+    const regularItem = items.find(item => item.product.id === productId);
+    if (regularItem) {
+      return regularItem.quantity;
+    }
+
+    // Check assortment products for individual cake quantities
+    let totalFromAssortments = 0;
+    items.forEach(item => {
+      if (item.product.productType === 'Assortment' && item.product.selectedCakes) {
+        const cakeQuantity = item.product.selectedCakes[productId] || 0;
+        totalFromAssortments += cakeQuantity * item.quantity; // Multiply by assortment quantity
+      }
+    });
+
+    return totalFromAssortments;
   };
 
   // Function to format phone number as user types
@@ -220,7 +234,7 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
           {/* Order Summary */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold mb-4 text-gray-900">Order Summary</h3>
-            <div className="space-y-4">
+            <div className="space-y-4 mb-6">
               {items.map((item) => (
                 <div key={item.product.id} className="flex gap-4">
                   <div className="relative w-20 h-20">
@@ -238,6 +252,14 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
                   </div>
                 </div>
               ))}
+            </div>
+            
+            {/* Total */}
+            <div className="border-t pt-4">
+              <div className="flex justify-between text-xl font-bold text-gray-900">
+                <span>Total</span>
+                <span>${getCartTotal().toFixed(2)}</span>
+              </div>
             </div>
           </div>
 
@@ -267,6 +289,19 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
             
             {/* Cart Total */}
             <input type="hidden" name="entry.2023944753" value={getCartTotal().toFixed(2)} />
+
+            {/* Assortment Products */}
+            {items.filter(item => item.product.productType === 'Assortment').map((item, index) => (
+              <input 
+                key={`assortment_${index}`}
+                type="hidden" 
+                name={`entry.assortment_${index}`} 
+                value={`${item.product.name}: ${item.product.selectedCakes ? Object.entries(item.product.selectedCakes)
+                  .filter(([, count]) => count > 0)
+                  .map(([cakeId, count]) => `${count}x ${cakeId}`)
+                  .join(', ') : 'No selection'}`} 
+              />
+            ))}
 
             {/* Hidden "Requested" field */}
             <input type="hidden" name="entry.227808856" value="Requested" />
@@ -457,12 +492,8 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
               />
             </div>
 
-            {/* Total and Submit */}
+            {/* Submit */}
             <div className="border-t pt-6">
-              <div className="flex justify-between text-xl mb-6">
-                <span className="font-semibold text-gray-900">Total</span>
-                <span className="font-bold text-gray-900">${getCartTotal().toFixed(2)}</span>
-              </div>
               <button 
                 type="submit"
                 disabled={isSubmitting}
