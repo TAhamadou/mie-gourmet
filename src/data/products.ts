@@ -129,18 +129,6 @@ export const products: Product[] = [
     promoId: "assortment"
   },
   {
-    id: 'pineapple_upside_down_mini',
-    name: "Pineapple Upside Down Cheesecake (Mini)",
-    price: 10.00,
-    servings: "1",
-    image: productImages.pineapple_upside_down_mini,
-    description: "",
-    allergens: "",
-    productType: "Cheesecake",
-    style: "Mini Cake",
-    promoId: "assortment"
-  },
-  {
     id: 'biscoff_cheesecake_mini',
     name: "Biscoff Cheesecake (Mini)",
     price: 10.00,
@@ -188,18 +176,6 @@ export const products: Product[] = [
     style: "Mini Cake"
   },
   {
-    id: 'strawberry_shortcake_mini',
-    name: "Strawberry Shortcake (Mini)",
-    price: 10.00,
-    servings: "1",
-    image: productImages.strawberry_shortcake_mini,
-    description: "",
-    allergens: "",
-    productType: "Layer Cake",
-    style: "Mini Cake",
-    promoId: "assortment"
-  },
-  {
     id: 'cinnamon_honey_bun_mini',
     name: "Cinnamon Honey Bun (Mini)",
     price: 10.00,
@@ -220,5 +196,29 @@ export const products: Product[] = [
     allergens: "",
     productType: "Bun Cake",
     style: "Mini Cake"
-  }
+  },
+  {
+    id: 'strawberry_shortcake_mini',
+    name: "Strawberry Shortcake (Mini)",
+    price: 10.00,
+    servings: "1",
+    image: productImages.strawberry_shortcake_mini,
+    description: "",
+    allergens: "",
+    productType: "Layer Cake",
+    style: "Mini Cake",
+    promoId: "assortment"
+  },
+  {
+    id: 'pineapple_upside_down_mini',
+    name: "Pineapple Upside Down Cheesecake (Mini)",
+    price: 10.00,
+    servings: "1",
+    image: productImages.pineapple_upside_down_mini,
+    description: "",
+    allergens: "",
+    productType: "Cheesecake",
+    style: "Mini Cake",
+    promoId: "assortment"
+  },
 ]; 
