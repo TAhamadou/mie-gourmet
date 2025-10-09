@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import {
-  Bars3Icon,
   ShoppingBagIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -13,7 +12,7 @@ interface HeaderProps {
   disableOpacityChange?: boolean;
 }
 
-export default function Header({ setIsMenuOpen, setIsCartOpen, disableOpacityChange = false }: HeaderProps) {
+export default function Header({ setIsCartOpen, disableOpacityChange = false }: HeaderProps) {
   const { getItemCount } = useCart();
   const itemCount = getItemCount();
   const [scrollY, setScrollY] = useState(0);
