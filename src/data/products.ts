@@ -60,7 +60,7 @@ const productImages = {
   strawberry: getImagesForProduct('strawberry'),
   sweet_potato: getImagesForProduct('sweet_potato'),
   pineapple_dream: getImagesForProduct('pineapple_dream'),
-  sweet_potato_mini: getImagesForProduct('sweet_potato_mini'),
+  sweet_potato_cheesecake_mini: getImagesForProduct('sweet_potato_cheesecake_mini'),
   pineapple_upside_down_mini: getImagesForProduct('pineapple_upside_down_mini'),
   biscoff_cheesecake_mini: getImagesForProduct('biscoff_cheesecake_mini'),
   german_sweet_chocolate_mini: getImagesForProduct('german_sweet_chocolate_mini'),
@@ -117,11 +117,11 @@ export const products: Product[] = [
     style: "Whole Cake"
   },
   {
-    id: 'sweet_potato_mini',
+    id: 'sweet_potato_cheesecake_mini',
     name: "Sweet Potato Cheesecake (Mini)",
     price: 10.00,
     servings: "1",
-    image: productImages.sweet_potato_mini,
+    image: productImages.sweet_potato_cheesecake_mini,
     description: "",
     allergens: "",
     productType: "Cheesecake",

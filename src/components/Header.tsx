@@ -33,13 +33,13 @@ export default function Header({ setIsMenuOpen, setIsCartOpen, disableOpacityCha
       style={{ backgroundColor: `rgba(255, 237, 213, ${headerOpacity})` }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <button 
+        {/* <button 
           className="p-2 rounded-md hover:bg-orange-200"
           onClick={() => setIsMenuOpen(true)}
         >
           <Bars3Icon className="h-6 w-6 text-gray-800" />
         </button>
-        
+         */}
         <div className="flex-1 flex justify-center">
           <Link href="/">
             <span 
